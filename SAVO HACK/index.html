@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SILVA BOREAL | Kuopio Forest Carbon & Risk Intelligence</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Leaflet CSS for Watchdog Satellite Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Sticky Glass Header Bar -->
+  <header class="header-bar">
+    <a href="#" class="brand-logo">
+      <div class="brand-icon">
+        <i class="fa-solid fa-tree"></i>
+      </div>
+      <div>
+        <div class="brand-title">SILVA BOREAL</div>
+        <div style="font-size: 10px; color: var(--text-muted); font-family: var(--font-mono);">KUOPIO FOREST CARBON
+          PLATFORM</div>
+      </div>
+      <span class="brand-badge">HACKATHON EDITION</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#service-1" class="nav-tab active"><i class="fa-solid fa-cloud-sun"></i> 1. CO₂ Metrics</a>
+      <a href="#service-2" class="nav-tab"><i class="fa-solid fa-chart-line"></i> 2. Owner Assessment</a>
+      <a href="report.html" class="nav-tab" style="color: #19e3ff;"><i class="fa-solid fa-file-waveform"></i> Asset
+        Report</a>
+      <a href="order.html" class="nav-tab" style="color: #39ff88;"><i class="fa-solid fa-basket-shopping"></i> Order
+        Report</a>
+      <a href="#service-3" class="nav-tab"><i class="fa-solid fa-calendar-check"></i> 3. Book Visit</a>
+      <a href="#service-4" class="nav-tab"><i class="fa-solid fa-shield-halved"></i> 4. Watchdog API</a>
+    </nav>
+
+    <button class="nav-cta" onclick="document.getElementById('service-3').scrollIntoView({behavior: 'smooth'})">
+      <i class="fa-solid fa-paper-plane"></i> Book Inspection
+    </button>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- Hero Banner Section -->
+    <section class="hero-section">
+      <img src="assets/images/hero_canopy.jpg" alt="Kuopio Boreal Forest Canopy" class="hero-bg">
+      <div class="hero-overlay">
+        <div class="hero-tag">
+          <i class="fa-solid fa-earth-europe"></i> Region: Kuopio & North Savo, Finland
+        </div>
+        <h1 class="hero-title">Kuopio Boreal Carbon & Risk Intelligence Platform</h1>
+        <p class="hero-desc">
+          Quantifying boreal carbon storage, active annual sequestration sinks, forest financial worth, and real-time
+          satellite risk telemetry for landowners, city planners, and environmental insurers.
+        </p>
+
+        <div class="hero-stats-grid">
+          <div class="hero-stat-card">
+            <div class="hero-stat-val">300,000 ha</div>
+            <div class="hero-stat-label">Total Kuopio Forest Land</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-val">~300 Mt</div>
+            <div class="hero-stat-label">Stored CO₂ Stock</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-val">~1.1 Mt/yr</div>
+            <div class="hero-stat-label">Annual Net CO₂ Sink</div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="hero-stat-val">24/7 Watchdog</div>
+            <div class="hero-stat-label">Insurance Satellite API</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 1: CO2 EMISSION & NETWORK METRICS -->
+    <section id="service-1" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <div class="service-num-badge">01</div>
+          <div>
+            <h2 class="section-title">CO₂ Emission & Carbon Network Service</h2>
+            <div class="section-subtitle">Kuopio Boreal Forest Carbon Metrics & Regional Inventory</div>
+          </div>
+        </div>
+        <button id="unit-toggle-btn" class="nav-cta"
+          style="background: rgba(255,255,255,0.08); color: #fff; border: 1px solid var(--glass-border);">
+          <i class="fa-solid fa-repeat"></i> Showing: <strong>Hectares (ha)</strong>
+        </button>
+      </div>
+
+      <!-- Core Distinction Cards -->
+      <div class="metric-pair-grid">
+        <div class="glass-panel metric-focus-card stock">
+          <span class="metric-badge cyan"><i class="fa-solid fa-lock"></i> Static Metric</span>
+          <h3 style="font-size: 20px; color: #fff; margin-bottom: 8px;">Carbon Storage (Stock)</h3>
+          <p style="font-size: 14px; color: var(--text-muted);">
+            The total static quantity of carbon permanently locked inside living tree wood, roots, and dense boreal soil
+            peat layers. Represents long-term climate resilience.
+          </p>
+        </div>
+        <div class="glass-panel metric-focus-card sink">
+          <span class="metric-badge emerald"><i class="fa-solid fa-arrows-down-to-line"></i> Dynamic Metric</span>
+          <h3 style="font-size: 20px; color: #fff; margin-bottom: 8px;">Carbon Sequestration (Sink)</h3>
+          <p style="font-size: 14px; color: var(--text-muted);">
+            The active net quantity of CO₂ absorbed from the atmosphere each year through photosynthetic growth minus
+            harvesting and natural respiration.
+          </p>
+        </div>
+      </div>
+
+      <!-- Tabulation Table -->
+      <div class="glass-panel" style="padding: 24px; margin-bottom: 28px;">
+        <h3 style="font-size: 18px; margin-bottom: 16px; color: #a7f3d0;">
+          <i class="fa-solid fa-table-list"></i> CO₂ Metrics Across Kuopio’s Forest Network
+        </h3>
+
+        <div class="table-wrapper">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th>Forest Ownership Category</th>
+                <th>Total Land Area</th>
+                <th>Estimated CO₂ Storage (Wood + Soil)</th>
+                <th>Net Annual CO₂ Sequestration (Sink)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color: #fff;"><i class="fa-solid fa-user-group"></i> Private Family Forests</strong>
+                </td>
+                <td data-ha="190000">~190,000 ha</td>
+                <td><strong style="color: #67e8f9;">~180 – 220 Mt CO₂</strong> <span
+                    style="font-size: 11px; color: var(--text-muted);">(~1,000 t CO₂/ha)</span></td>
+                <td><strong style="color: #34d399;">~600,000 – 900,000 t CO₂/year</strong></td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fff;"><i class="fa-solid fa-landmark"></i> State Forests
+                    (Metsähallitus)</strong></td>
+                <td data-ha="40000">~40,000 ha</td>
+                <td><strong style="color: #67e8f9;">~38 – 45 Mt CO₂</strong></td>
+                <td><strong style="color: #34d399;">~120,000 – 180,000 t CO₂/year</strong></td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fff;"><i class="fa-solid fa-city"></i> City of Kuopio (Municipal)</strong>
+                </td>
+                <td data-ha="12500">~12,500 ha</td>
+                <td><strong style="color: #67e8f9;">~12 – 14 Mt CO₂</strong></td>
+                <td><strong style="color: #34d399;">~40,000 – 60,000 t CO₂/year</strong></td>
+              </tr>
+              <tr class="total-row">
+                <td><i class="fa-solid fa-tree-city"></i> Total Kuopio Forest Land</td>
+                <td data-ha="300000">~300,000 ha</td>
+                <td>~280 – 320 Mt CO₂</td>
+                <td>~0.9 – 1.3 Mt CO₂/year</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Formula & Benchmarks Banner -->
+      <div class="formula-banner">
+        <div>
+          <span
+            style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); font-weight: 700;">Fundamental
+            Stoichiometric Conversion</span>
+          <div class="formula-math">Conversion Formula: 1 Tonne of Carbon (C) × 3.67 = 3.67 Tonnes of CO₂</div>
+        </div>
+        <div style="text-align: right;">
+          <span class="metric-badge emerald"><i class="fa-solid fa-calculator"></i> Verified Boreal Benchmark</span>
+        </div>
+      </div>
+
+      <!-- Formula Benchmarks Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px;">
+        <div class="glass-card-sm">
+          <h4 style="color: #34d399; font-size: 16px; margin-bottom: 8px;"><i class="fa-solid fa-leaf"></i> 1. Annual
+            Carbon Sequestration Rate (Sink)</h4>
+          <p style="font-size: 13px; color: var(--text-muted);">
+            Average regional growth minus logging yields a net sequestration rate of roughly
+            <strong style="color: #fff;">3.0 to 4.5 tonnes of CO₂ per hectare per year</strong> across mixed pine/spruce
+            stands.
+          </p>
+        </div>
+        <div class="glass-card-sm">
+          <h4 style="color: #67e8f9; font-size: 16px; margin-bottom: 8px;"><i class="fa-solid fa-layer-group"></i> 2.
+            Total Stored Carbon (Stock)</h4>
+          <p style="font-size: 13px; color: var(--text-muted);">
+            Dense Finnish boreal forests hold roughly <strong style="color: #fff;">250 to 350 tonnes of pure Carbon per
+              hectare</strong>
+            (~900 to 1,300 tonnes of CO₂ eq) combined across aboveground tree biomass (~30%) and soil organic matter
+            (~70%).
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive Charts Row -->
+      <div style="display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; margin-bottom: 28px;">
+        <div class="glass-panel" style="padding: 20px; height: 320px;">
+          <h4 style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Kuopio CO₂ Sink vs. Storage Stock
+            Comparison</h4>
+          <canvas id="sinkChart"></canvas>
+        </div>
+        <div class="glass-panel" style="padding: 20px; height: 320px; text-align: center;">
+          <h4 style="font-size: 14px; color: var(--text-muted); margin-bottom: 12px;">Boreal Carbon Stock Allocation
+          </h4>
+          <div style="height: 220px; position: relative;">
+            <canvas id="stockCompositionChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Commercial Application Context -->
+      <div class="glass-panel" style="padding: 24px; border-left: 4px solid var(--accent-amber);">
+        <h3 style="font-size: 18px; color: var(--accent-amber); margin-bottom: 12px;">
+          <i class="fa-solid fa-triangle-exclamation"></i> Commercial Application Context for Environmental Risk
+          Platform
+        </h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <div>
+            <h4 style="color: #fff; font-size: 14px; margin-bottom: 6px;"><i class="fa-solid fa-axe"></i> Logging
+              Disruptions & Felling Audits</h4>
+            <p style="font-size: 13px; color: var(--text-muted);">
+              Harvesting abruptly releases significant soil & biomass CO₂. Real-time tracking of official felling
+              permits vs actual satellite clear-cuts is critical for calculating carbon credit reversals.
+            </p>
+          </div>
+          <div>
+            <h4 style="color: #fff; font-size: 14px; margin-bottom: 6px;"><i class="fa-solid fa-wind"></i> Risks to
+              Carbon Permanence</h4>
+            <p style="font-size: 13px; color: var(--text-muted);">
+              Extreme windthrow storms, Ips typographus (bark beetle) infestations, and peatland drainage alter a
+              healthy forest stand from a net carbon sink into a net greenhouse gas emission source.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 2: PRIVATE FOREST OWNER VALUATION & HEALTH ASSESSMENT -->
+    <section id="service-2" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <div class="service-num-badge">02</div>
+          <div>
+            <h2 class="section-title">Updated Forest Assessment for Landlords</h2>
+            <div class="section-subtitle">Financial Valuation, CO₂ Credit Yield & Environmental Health Report</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 28px;">
+        <div class="calc-container">
+
+          <!-- Input Controls -->
+          <div>
+            <h3 style="font-size: 18px; color: #fff; margin-bottom: 20px;">
+              <i class="fa-solid fa-sliders"></i> Property & Forest Parameters
+            </h3>
+
+            <div class="input-group">
+              <div class="input-label">
+                <span>Forest Size (Hectares)</span>
+                <span id="label-size-ha" style="color: #34d399; font-weight: 700;">50 ha</span>
+              </div>
+              <input type="range" id="calc-size-ha" class="range-slider" min="1" max="500" value="50" step="1">
+            </div>
+
+            <div class="input-group">
+              <div class="input-label">
+                <span>Forest Size (Square Meters)</span>
+                <span style="color: var(--text-dim);">Auto-Calculated</span>
+              </div>
+              <input type="number" id="calc-size-sqm" class="input-field" value="500000">
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <div class="input-label">Average Tree Age</div>
+                <input type="number" id="calc-tree-age" class="input-field" value="45" min="10" max="120">
+              </div>
+              <div class="input-group">
+                <div class="input-label">Dominant Tree Species</div>
+                <select id="calc-forest-type" class="input-field">
+                  <option value="1.1">Scots Pine (Mäntytukki)</option>
+                  <option value="1.0" selected>Norway Spruce (Kuusi)</option>
+                  <option value="0.9">Birch / Mixed (Koivikko)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Custom Market Valuation Rates -->
+            <div style="border-top: 1px dashed var(--glass-border-strong); padding-top: 16px; margin-top: 16px;">
+              <h4 style="font-size: 14px; color: #a7f3d0; margin-bottom: 12px;">
+                <i class="fa-solid fa-coins"></i> Valuation Pricing Parameters
+              </h4>
+              <div class="form-row">
+                <div class="input-group">
+                  <div class="input-label">Base Timber Rate (€/ha)</div>
+                  <input type="number" id="calc-timber-rate" class="input-field" value="5800" step="100">
+                </div>
+                <div class="input-group">
+                  <div class="input-label">CO₂ Credit Price (€/tonne)</div>
+                  <input type="number" id="calc-credit-price" class="input-field" value="75" step="5">
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="background: rgba(16, 185, 129, 0.08); border-radius: var(--radius-md); padding: 14px; font-size: 12px; color: var(--text-muted); margin-top: 10px;">
+              <i class="fa-solid fa-calculator" style="color: #34d399;"></i> Adjust parameters above to dynamically
+              compute timber stock value, annual carbon yield, and total net worth.
+            </div>
+          </div>
+
+          <!-- Live Output Results -->
+          <div>
+            <h3 style="font-size: 18px; color: #a7f3d0; margin-bottom: 20px;">
+              <i class="fa-solid fa-chart-pie"></i> Assessment & Financial Valuation Summary
+            </h3>
+
+            <div class="results-grid">
+              <div class="val-card"
+                style="border-color: rgba(52, 211, 153, 0.4); background: rgba(16, 185, 129, 0.08);">
+                <div style="font-size: 11px; color: #a7f3d0; text-transform: uppercase; font-weight: 700;">1. Total
+                  Approx Net Worth</div>
+                <div id="res-total-value" class="val-num" style="font-size: 26px; color: #34d399;">€401,625</div>
+                <div class="val-sub">Timber Stock + 10-Yr CO₂ Credits</div>
+              </div>
+
+              <div class="val-card">
+                <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">
+                  Timber Stock Value</div>
+                <div id="res-timber-worth" class="val-num">€261,000</div>
+                <div class="val-sub">Based on timber volume & age</div>
+              </div>
+
+              <div class="val-card">
+                <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">2.
+                  Annual CO₂ Sink</div>
+                <div id="res-annual-sink" class="val-num" style="color: #67e8f9;">188 t CO₂/yr</div>
+                <div class="val-sub">Active annual sink growth</div>
+              </div>
+
+              <div class="val-card">
+                <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">
+                  Annual Credit Revenue</div>
+                <div id="res-credit-euro" class="val-num">€14,063/yr</div>
+                <div class="val-sub">At market rate per credit</div>
+              </div>
+            </div>
+
+            <!-- Mathematical Relationship Breakdown Banner -->
+            <div
+              style="background: rgba(16, 185, 129, 0.08); border: 1px dashed rgba(52, 211, 153, 0.3); border-radius: var(--radius-md); padding: 12px 16px; margin-bottom: 20px; font-size: 12px; color: var(--text-muted);">
+              <div
+                style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px; color: #a7f3d0; font-weight: 700;">
+                <i class="fa-solid fa-calculator"></i> Calculation Formula Breakdown:
+              </div>
+              <div id="formula-breakdown-text" style="font-family: var(--font-mono); color: #fff;">
+                Total Worth (€401,625) = Timber Stock (€261,000) + 10-Yr Carbon Credits (€140,625)
+              </div>
+            </div>
+
+            <!-- Health & Risk Report Box -->
+            <div
+              style="background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 18px; margin-bottom: 20px;">
+              <h4 style="font-size: 14px; color: #fff; margin-bottom: 12px;"><i class="fa-solid fa-notes-medical"></i>
+                3. Tree Health & Environmental Risk Status</h4>
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; font-size: 12px;">
+                <div>
+                  <span style="color: var(--text-muted);">Canopy Health Grade:</span>
+                  <div id="res-health-grade" style="font-weight: 700; color: #34d399; font-size: 14px;">A+ Optimal</div>
+                </div>
+                <div>
+                  <span style="color: var(--text-muted);">Bark Beetle Risk:</span>
+                  <div id="res-beetle-risk" style="font-weight: 700; color: #67e8f9; font-size: 14px;">Low (12%)</div>
+                </div>
+                <div>
+                  <span style="color: var(--text-muted);">Windthrow Storm Risk:</span>
+                  <div id="res-wind-risk" style="font-weight: 700; color: #67e8f9; font-size: 14px;">Low (8%)</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <button id="btn-generate-report" class="btn-submit">
+                <i class="fa-solid fa-file-pdf"></i> Download Official Forest Health & Valuation Certificate (PDF)
+              </button>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <a href="report.html" class="nav-cta"
+                  style="background: rgba(25, 227, 255, 0.15); color: #19e3ff; border: 1px solid rgba(25, 227, 255, 0.4); text-align: center; justify-content: center;">
+                  <i class="fa-solid fa-chart-line"></i> Open Detailed Asset Report
+                </a>
+                <a href="order.html" class="nav-cta"
+                  style="background: rgba(57, 255, 136, 0.15); color: #39ff88; border: 1px solid rgba(57, 255, 136, 0.4); text-align: center; justify-content: center;">
+                  <i class="fa-solid fa-cart-shopping"></i> Order Custom Report
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 3: CONTACT FORM FOR VISIT / APPOINTMENT -->
+    <section id="service-3" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <div class="service-num-badge">03</div>
+          <div>
+            <h2 class="section-title">Schedule an On-Site Forest Inspection</h2>
+            <div class="section-subtitle">Book a physical visit with our Kuopio Boreal Forestry & Carbon Experts</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 32px;">
+        <div class="booking-grid">
+
+          <!-- Contact Form -->
+          <form id="inspection-form" action="0625968a-2e1c-401b-bbe3-ab5f335bdc77" method="POST">
+            <input type="hidden" name="access_key" value="0625968a-2e1c-401b-bbe3-ab5f335bdc77">
+            <input type="hidden" name="subject" value="🌲 New Kuopio Forest Inspection Appointment Request">
+            <input type="hidden" name="from_name" value="Silva Boreal Inspection Portal">
+
+            <h3 style="font-size: 18px; color: #fff; margin-bottom: 20px;">
+              <i class="fa-solid fa-id-card"></i> Owner & Property Information
+            </h3>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label class="input-label">Full Name *</label>
+                <input type="text" id="book-name" name="name" class="input-field" placeholder="e.g. Matti Virtanen"
+                  required>
+              </div>
+              <div class="input-group">
+                <label class="input-label">Phone Number *</label>
+                <input type="tel" id="book-phone" name="phone" class="input-field" placeholder="+358 40 123 4567"
+                  required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label class="input-label">Email Address *</label>
+                <input type="email" id="book-email" name="email" class="input-field" placeholder="matti@virtanen.fi"
+                  required>
+              </div>
+              <div class="input-group">
+                <label class="input-label">Forest Address / Property Code *</label>
+                <input type="text" id="book-address" name="address" class="input-field"
+                  placeholder="Puijonsarvi 12, 70100 Kuopio" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <label class="input-label">Forest Size in Square Meters (m²) *</label>
+                <input type="number" id="book-sqm" name="forest_size_sqm" class="input-field" placeholder="e.g. 150000"
+                  required>
+                <span id="book-ha-convert"
+                  style="font-size: 11px; color: #34d399; margin-top: 4px; display: block;">(Equals approx. 15.00
+                  Hectares)</span>
+              </div>
+              <div class="input-group">
+                <label class="input-label">Preferred Date for Appointment *</label>
+                <input type="date" id="book-date" name="appointment_date" class="input-field" required>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Primary Objective for Visit</label>
+              <select name="objective" class="input-field">
+                <option>Carbon Credit Onboarding & Certification</option>
+                <option>Tree Health & Pest Audit</option>
+                <option>Commercial Timber & Carbon Valuation</option>
+                <option>Peatland & Drainage Assessment</option>
+              </select>
+            </div>
+
+            <button type="submit" id="btn-book-submit" class="btn-submit">
+              <i class="fa-solid fa-paper-plane"></i> Submit & Confirm Inspection Appointment
+            </button>
+          </form>
+
+          <!-- Side Benefit Card -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between;">
+            <div class="glass-card-sm"
+              style="height: 100%; border-color: rgba(16,185,129,0.3); background: rgba(16,185,129,0.04);">
+              <h4 style="color: #34d399; font-size: 16px; margin-bottom: 14px;">
+                <i class="fa-solid fa-truck-medical"></i> What Happens During the Visit?
+              </h4>
+
+              <ul
+                style="list-style: none; font-size: 13px; color: var(--text-muted); display: flex; flex-direction: column; gap: 14px;">
+                <li style="display: flex; gap: 10px;">
+                  <i class="fa-solid fa-satellite" style="color: var(--accent-teal); margin-top: 3px;"></i>
+                  <div><strong>1. Drone LiDAR Calibration:</strong> We perform a 3D high-precision canopy density scan
+                    of your stands.</div>
+                </li>
+                <li style="display: flex; gap: 10px;">
+                  <i class="fa-solid fa-vial-virus" style="color: var(--accent-cyan); margin-top: 3px;"></i>
+                  <div><strong>2. Soil & Peat Core Sampling:</strong> Soil sample testing to verify deep carbon stock
+                    density.</div>
+                </li>
+                <li style="display: flex; gap: 10px;">
+                  <i class="fa-solid fa-file-contract" style="color: #34d399; margin-top: 3px;"></i>
+                  <div><strong>3. Carbon Credit Issuance:</strong> Finalize certified credit listing on the Savo Boreal
+                    Registry.</div>
+                </li>
+              </ul>
+
+              <div
+                style="margin-top: 24px; padding-top: 16px; border-top: 1px dashed rgba(255,255,255,0.1); text-align: center;">
+                <img src="assets/images/hero_canopy.jpg"
+                  style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-sm); filter: brightness(0.7);"
+                  alt="Kuopio Inspector">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 4: WATCHDOG API INTERFACE FOR INSURANCE COMPANIES -->
+    <section id="service-4" class="section-block">
+      <div class="section-header">
+        <div class="section-title-wrapper">
+          <div class="service-num-badge">04</div>
+          <div>
+            <h2 class="section-title">Watchdogs API & Insurance Telemetry</h2>
+            <div class="section-subtitle">Real-time Boreal Risk Monitoring & Carbon Reversal Claims Engine for Insurers
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel" style="padding: 28px;">
+        <div class="watchdog-layout">
+
+          <!-- Map & Live Radar -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="font-size: 16px; color: #fff;">
+                <i class="fa-solid fa-satellite-dish" style="color: var(--accent-red);"></i> Satellite Watchdog Radar
+                (Kuopio Sector)
+              </h3>
+              <span class="metric-badge emerald"><i class="fa-solid fa-circle" style="font-size: 8px;"></i> Live Feed
+                Active</span>
+            </div>
+
+            <div class="map-container">
+              <div id="leaflet-map"></div>
+            </div>
+
+            <!-- Incident Alert Banner -->
+            <div
+              style="background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: var(--radius-md); padding: 14px 18px; margin-top: 14px; display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <i class="fa-solid fa-triangle-exclamation" style="color: var(--accent-red); font-size: 20px;"></i>
+                <div>
+                  <div style="font-size: 13px; font-weight: 700; color: #fca5a5;">ACTIVE REVERSAL ALERT: Parcel
+                    #KUO-9104</div>
+                  <div style="font-size: 11px; color: var(--text-muted);">Unpermitted clear-cut detected. Carbon
+                    liability estimate: 8,500 t CO₂ (€637,500).</div>
+                </div>
+              </div>
+              <button class="nav-cta"
+                style="background: var(--accent-red); color: #fff; font-size: 11px; padding: 6px 12px;">Trigger Reversal
+                Claim</button>
+            </div>
+          </div>
+
+          <!-- API Developer Console -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="font-size: 16px; color: #a7f3d0;">
+                <i class="fa-solid fa-code"></i> Watchdog REST API Inspector
+              </h3>
+              <button id="btn-copy-key"
+                style="background: rgba(255,255,255,0.08); border: 1px solid var(--glass-border); color: #a7f3d0; padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer;">
+                <i class="fa-solid fa-key"></i> Copy API Key
+              </button>
+            </div>
+
+            <div class="api-endpoint-selector">
+              <button class="api-btn active" data-endpoint="parcels">GET /api/v1/parcels</button>
+              <button class="api-btn" data-endpoint="alerts">GET /api/v1/alerts</button>
+              <button class="api-btn" data-endpoint="insurance_claim">POST /api/v1/reversal-claim</button>
+            </div>
+
+            <div id="api-response-box" class="api-code-box">Loading API response...</div>
+
+            <div
+              style="margin-top: 16px; background: rgba(0,0,0,0.4); border-radius: var(--radius-md); padding: 14px; border: 1px solid rgba(255,255,255,0.06);">
+              <h4 style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+                Insurance Webhook Integrations</h4>
+              <p style="font-size: 12px; color: var(--text-muted);">
+                Insurers receive automated HTTP POST webhooks within 15 minutes of Sentinel satellite pass whenever a
+                insured parcel transitions from net sink to net emitter.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Appointment Confirmation Modal -->
+  <div id="booking-modal" class="modal-overlay">
+    <div class="glass-panel modal-card">
+      <div style="text-align: center; margin-bottom: 20px;">
+        <div
+          style="width: 56px; height: 56px; background: rgba(16,185,129,0.2); border: 2px solid var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; color: #34d399; font-size: 24px;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 style="font-size: 22px; color: #fff;">Forest Inspection Confirmed!</h3>
+        <p style="font-size: 13px; color: var(--text-muted);">Your appointment has been registered with the Kuopio Savo
+          Boreal Field Team.</p>
+      </div>
+
+      <div
+        style="background: rgba(0,0,0,0.5); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 16px; font-size: 13px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: var(--text-muted);">Confirmation Code:</span>
+          <strong id="modal-appt-code" style="color: #34d399; font-family: var(--font-mono);">SB-KUO-882194</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: var(--text-muted);">Client Name:</span>
+          <strong id="modal-client-name" style="color: #fff;">-</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+          <span style="color: var(--text-muted);">Scheduled Date:</span>
+          <strong id="modal-client-date" style="color: #fff;">-</strong>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">Forest Area:</span>
+          <strong id="modal-client-area" style="color: #fff;">-</strong>
+        </div>
+      </div>
+
+      <button id="close-modal-btn" class="btn-submit">
+        <i class="fa-solid fa-thumbs-up"></i> Great, Back to Dashboard
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer Bar -->
+  <footer class="footer-bar">
+    <div style="margin-bottom: 8px; font-weight: 700; color: #fff;">SILVA BOREAL — Kuopio Hackathon Pitch Edition 2026
+    </div>
+    <div>Designed for Boreal Forest Carbon Intelligence, Landowners, & Insurance Underwriters in Finland.</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

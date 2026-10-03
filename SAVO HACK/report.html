@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forest Asset Intelligence Report | SILVA BOREAL</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="css/report_style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <a href="index.html" style="color: var(--green); text-decoration: none; font-weight: 600;"><i class="fa-solid fa-arrow-left"></i> Back to Main Platform</a>
+    <div>
+      <a class="btn" href="order.html"><i class="fa-solid fa-file-invoice"></i> Order a report</a>
+    </div>
+  </div>
+
+  <div class="panel">
+    <section>
+      <h1 class="title">Forest Asset Intelligence</h1>
+      <div class="totals" id="totals"></div>
+    </section>
+
+    <section>
+      <h2>Value change</h2>
+      <div class="row"><span>Previous survey</span><span class="v" id="prev"></span></div>
+      <div class="row"><span>Current estimate</span><span class="v" id="now"></span></div>
+      <div class="row total"><span>Change</span><span class="v loss" id="chg"></span></div>
+    </section>
+
+    <section>
+      <h2>Damage detected</h2>
+      <div id="damage"></div>
+    </section>
+
+    <section>
+      <h2>Recommended actions</h2>
+      <ul class="acts" id="acts"></ul>
+      <p class="note">These are suggestions to support your decision. A field inspection confirms any damage.</p>
+    </section>
+
+    <section class="cta">
+      <button id="why">Why did my forest lose <span id="why-amt"></span>? &rarr;</button>
+    </section>
+  </div>
+
+  <div class="panel more" id="whyPanel" hidden>
+    <section>
+      <h2 class="big">Why did forest value change?</h2>
+      <div class="row"><span>Previous value</span><span class="v" id="w-prev"></span></div>
+      <div class="row"><span>Current estimated value</span><span class="v" id="w-now"></span></div>
+      <div class="row total"><span>Total change</span><span class="v loss" id="w-chg"></span></div>
+    </section>
+    <section id="causes"></section>
+    <section>
+      <div class="row"><strong>Total estimated impact</strong><span class="v loss" id="w-total"></span></div>
+      <p class="story" id="story"></p>
+      <button id="showMap">Show affected areas</button>
+    </section>
+  </div>
+
+  <div class="panel more" id="mapPanel" hidden>
+    <section>
+      <h2>Forest Stands Map</h2>
+      <div class="map" id="map" role="group" aria-label="Forest map, select an area"></div>
+      <div class="legend">
+        <span><span class="dot" style="background:var(--green);color:var(--green)"></span>Normal</span>
+        <span><span class="dot" style="background:var(--gold);color:var(--gold)"></span>Monitor</span>
+        <span><span class="dot" style="background:var(--loss);color:var(--loss)"></span>Damage detected</span>
+      </div>
+    </section>
+    <section class="detail" id="detail"></section>
+  </div>
+</div>
+
+<script src="js/report_script.js"></script>
+</body>
+</html>

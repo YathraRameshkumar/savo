@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order a Forest Report | SILVA BOREAL</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="css/report_style.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="bar">
+    <a href="report.html"><i class="fa-solid fa-arrow-left"></i> Back to Intelligence Report</a>
+    <a href="index.html" style="color: var(--green); margin-left: 14px; text-decoration: none;"><i class="fa-solid fa-house"></i> Main Platform</a>
+    <p class="demo">Demo form, nothing is sent or saved</p>
+  </div>
+
+  <div class="panel" id="formPanel">
+    <section>
+      <h1 class="title">Order a forest report</h1>
+      <p class="lede">Tell us about your forest and see the estimated cost before you order.</p>
+    </section>
+    <section>
+      <form id="orderForm">
+        <fieldset class="seg">
+          <legend>Ordering as</legend>
+          <label><input type="radio" name="kind" value="private" checked> Private owner</label>
+          <label><input type="radio" name="kind" value="company"> Company</label>
+        </fieldset>
+
+        <div id="companyFields" hidden>
+          <div class="two">
+            <div class="field">
+              <label for="company">Company name</label>
+              <input id="company" name="company" type="text" autocomplete="organization" required disabled>
+            </div>
+            <div class="field">
+              <label for="bizid">Business ID or VAT number</label>
+              <input id="bizid" name="bizid" type="text" required disabled>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="name" id="nameLabel">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="two">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9+()\-\s]{6,20}" title="Use digits, spaces, + and - (6 to 20 characters)" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="home" id="homeLabel">Home address</label>
+          <input id="home" name="home" type="text" autocomplete="street-address" required>
+        </div>
+
+        <div class="field">
+          <label for="forest">Forest location</label>
+          <input id="forest" name="forest" type="text" required>
+          <span class="hint">An address, village or the nearest road is enough.</span>
+        </div>
+
+        <div class="field">
+          <label for="size">Estimated property size</label>
+          <div class="sizeRow">
+            <input id="size" name="size" type="number" min="0.1" step="0.1" inputmode="decimal" required>
+            <select id="unit" name="unit" aria-label="Unit">
+              <option value="hectares">hectares</option>
+              <option value="acres">acres</option>
+            </select>
+          </div>
+          <span class="hint">A rough guess is fine. We confirm the exact area before the survey.</span>
+        </div>
+
+        <div class="estimate" aria-live="polite" id="estimate"></div>
+        <button type="submit">Order report</button>
+        <button type="button" class="ghost" id="fill">Fill example data</button>
+      </form>
+    </section>
+  </div>
+
+  <div class="panel" id="donePanel" hidden>
+    <section>
+      <h1 class="title">Request received</h1>
+      <p class="lede">This is a demo, so nothing was sent or saved.</p>
+    </section>
+    <section id="summary"></section>
+    <section class="cta"><button id="again" type="button">Start a new request</button></section>
+  </div>
+</div>
+
+<script src="js/order_script.js"></script>
+</body>
+</html>
